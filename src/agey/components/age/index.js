@@ -66,7 +66,7 @@ export default function Age() {
         return currentMoment1.subtract(this.years, "years").diff(jobFirstDayMoment, "months");
       },
       days() {
-        return Math.abs(currentMoment1.subtract(this.months(), "months").diff(jobFirstDayMoment, "days"));
+        return currentMoment1.subtract(this.months() - 1, "months").diff(jobFirstDayMoment, "days");
       },
     },
     formatValue = (num) => {
@@ -91,39 +91,36 @@ export default function Age() {
       );
     };
 
-  console.log(sid);
-
   return (
     <div>
       <>
         <h1 className="my-4">Whats your Age?</h1>
-
         <hr />
-
         <div className="row">
           <div className="col">
             <h4 className="my-4">Actual Age:</h4>
             {renderText(livedFor.years, "Years")}
-            {renderText(actualAge.months, "Months")}
+            {renderText(actualAge.months % 12, "Months")}
             {renderText(actualAge.days(), "Days")}
             {renderText(actualAge.hours(), "Hours")}
             {renderText(actualAge.minutes(), "Minutes")}
             {renderText(actualAge.seconds(), "Seconds")}
+            <div className="ms"></div>
           </div>
           <div className="col">
             <h4 className="my-4">You have lived for:</h4>
-            <div>{animateNumber(livedFor.years)} Years</div>
-            <div>{animateNumber(livedFor.months)} Months</div>
-            <div>{animateNumber(livedFor.days)} Days</div>
-            <div>{animateNumber(livedFor.hours)} Hours</div>
-            <div>{animateNumber(livedFor.minutes)} Minutes</div>
-            <div>{animateNumber(livedFor.seconds)} Seconds</div>
+            {renderText(livedFor.years, "Years")}
+            {renderText(livedFor.months, "Months")}
+            {renderText(livedFor.days, "Days")}
+            {renderText(livedFor.hours, "Hours")}
+            {renderText(livedFor.minutes, "Minutes")}
+            {renderText(livedFor.seconds, "Seconds")}
           </div>
           <div className="col">
             <h4 className="my-4">Job Experience:</h4>
-            <div>{animateNumber(jobExperience.years)} Years</div>
-            <div>{animateNumber(jobExperience.months())} Months</div>
-            <div>{animateNumber(jobExperience.days())} Days</div>
+            {renderText(jobExperience.years, "Years")}
+            {renderText(jobExperience.months(), "Months")}
+            {renderText(jobExperience.days(), "Days")}
           </div>
         </div>
       </>
