@@ -120,32 +120,30 @@ export default function Age() {
       <>
         <h1 className="my-4">Whats your Age?</h1>
         <div className="row">
-          <div className="col">
-            <div class="input-group">
+          <div className="col-md-4">
+            <div class="input-group my-3">
               <span class="input-group-text">D.O.B</span>
               <input class="form-control" type="date" name="" id="" value={dob} max={`${new Date().getFullYear()}-${new Date().getMonth() + 1}-${new Date().getDate()}`} onChange={changeDob} />
             </div>
           </div>
-          <div className="col">
-            <div class="input-group">
+          <div className="col-md-4">
+            <div class="input-group my-3">
               <span class="input-group-text">T.O.B</span>
               <input class="form-control" type="time" name="" id="" value={dobTime} onChange={changeDobTime} />
             </div>
           </div>
-          <div className="col">
-            <div className="col">
-              <div class="input-group">
-                <span class="input-group-text">D.O.J</span>
-                <input class="form-control" type="date" name="" id="" value={job} max={`${new Date().getFullYear()}-${new Date().getMonth() + 1}-${new Date().getDate()}`} onChange={changeJob} />
-              </div>
+          <div className="col-md-4">
+            <div class="input-group my-3">
+              <span class="input-group-text">D.O.J</span>
+              <input class="form-control" type="date" name="" id="" value={job} max={`${new Date().getFullYear()}-${new Date().getMonth() + 1}-${new Date().getDate()}`} onChange={changeJob} />
             </div>
           </div>
         </div>
 
-        <hr />
+        <hr className="my-4" />
         {livedFor.minutes > 0 && (
           <div className="row">
-            <div className="col">
+            <div className="col-md-4">
               <h4 className="my-4">Actual Age:</h4>
               {renderText(livedFor.years, "Years")}
               {renderText(actualAge.months % 12, "Months")}
@@ -156,7 +154,7 @@ export default function Age() {
               {/* {renderText(actualAge.milliSeconds(), "MilliSeconds")} */}
               <div className="ms"></div>
             </div>
-            <div className="col-5">
+            <div className="col-md-4">
               <h4 className="my-4">You have lived for:</h4>
               {renderText(livedFor.years, "Years")}
               {renderText(livedFor.months, "Months")}
@@ -166,7 +164,7 @@ export default function Age() {
               {renderText(livedFor.seconds, "Seconds")}
               {/* {renderText(livedFor.milliseconds, "MilliSeconds")} */}
             </div>
-            <div className="col">
+            <div className="col-md-4">
               <h4 className="my-4">Job Experience:</h4>
               {renderText(jobExperience.years, "Years")}
               {renderText(jobExperience.months(), "Months")}
