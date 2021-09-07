@@ -1,4 +1,4 @@
-# Pramath S.B | Agey
+# Agey
 
 ### Shows your actual Age and Work Experience
 
