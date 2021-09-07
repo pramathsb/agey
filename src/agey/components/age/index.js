@@ -96,24 +96,37 @@ export default function Age() {
     formatValue = (num) => {
       return twoDigit(num.toFixed(0));
     },
+    formatValueSingle = (num) => {
+      return num.toFixed(0);
+    },
     twoDigit = (num) => {
       return num.toString().length > 1 ? num : "0" + num;
     },
     animateNumber = (num) => {
-      function animateText(num) {
-        return <AnimatedNumber duration={init ? 0 : 1000} value={num} formatValue={formatValue} className="nums" />;
-      }
-
-      return animateText(num);
+      return <AnimatedNumber duration={init ? 0 : 1000} value={num} formatValue={formatValue} className="nums" />;
+    },
+    animateNumberNoFormat = (num) => {
+      return <AnimatedNumber duration={init ? 0 : 1000} value={num} formatValue={formatValueSingle} className="nums" />;
+    },
+    renderAnimation = (num, param) => {
+      return (
+        <>
+          {animateNumberNoFormat(num)}
+          {<span className="prop"> {param}</span>}
+        </>
+      );
     },
     renderText = (num, param) => {
       return (
         <div className="item">
           {animateNumber(num)}
-          <span className="prop">{param}</span>
+          {<span className="prop"> {param}</span>}
         </div>
       );
     };
+
+  const jeM = jobExperience.months(),
+    jeD = jobExperience.days();
 
   return (
     <div>
@@ -121,26 +134,36 @@ export default function Age() {
         <h1 className="my-4">Whats your Age?</h1>
         <div className="row">
           <div className="col-md-4">
-            <div class="input-group my-3">
-              <span class="input-group-text">D.O.B</span>
-              <input class="form-control" type="date" name="" id="" value={dob} max={`${new Date().getFullYear()}-${new Date().getMonth() + 1}-${new Date().getDate()}`} onChange={changeDob} />
+            <div className="input-group my-3">
+              <span className="input-group-text">D.O.B</span>
+              <input className="form-control" type="date" name="" id="" value={dob} max={`${new Date().getFullYear()}-${new Date().getMonth() + 1}-${new Date().getDate()}`} onChange={changeDob} />
             </div>
           </div>
           <div className="col-md-4">
-            <div class="input-group my-3">
-              <span class="input-group-text">T.O.B</span>
-              <input class="form-control" type="time" name="" id="" value={dobTime} onChange={changeDobTime} />
+            <div className="input-group my-3">
+              <span className="input-group-text">T.O.B</span>
+              <input className="form-control" type="time" name="" id="" value={dobTime} onChange={changeDobTime} />
             </div>
           </div>
           <div className="col-md-4">
-            <div class="input-group my-3">
-              <span class="input-group-text">D.O.J</span>
-              <input class="form-control" type="date" name="" id="" value={job} max={`${new Date().getFullYear()}-${new Date().getMonth() + 1}-${new Date().getDate()}`} onChange={changeJob} />
+            <div className="input-group my-3">
+              <span className="input-group-text">D.O.J</span>
+              <input className="form-control" type="date" name="" id="" value={job} max={`${new Date().getFullYear()}-${new Date().getMonth() + 1}-${new Date().getDate()}`} onChange={changeJob} />
             </div>
           </div>
         </div>
-
-        <hr className="my-4" />
+        <hr className="" />
+        <div className="row">
+          <div className="col-md-4">
+            <h3 className="my-4">Age</h3>
+            {renderAnimation(livedFor.years, "")}.{renderAnimation(((livedFor.months % 12) * 10) / 12, "Years")}
+          </div>
+          <div className="col-md-4">
+            <h3 className="my-4">Job Experience</h3>
+            {renderAnimation(jobExperience.years, "")}.{renderAnimation((jeM * 10) / 12, "Years")}
+          </div>
+        </div>
+        <hr className="" />
         {livedFor.minutes > 0 && (
           <div className="row">
             <div className="col-md-4">
@@ -167,8 +190,8 @@ export default function Age() {
             <div className="col-md-4">
               <h4 className="my-4">Job Experience:</h4>
               {renderText(jobExperience.years, "Years")}
-              {renderText(jobExperience.months(), "Months")}
-              {renderText(jobExperience.days(), "Days")}
+              {renderText(jeM, "Months")}
+              {renderText(jeD, "Days")}
             </div>
           </div>
         )}
