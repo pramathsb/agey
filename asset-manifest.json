@@ -1,20 +1,20 @@
 {
   "files": {
     "main.css": "/agey/static/css/main.b9be6a39.chunk.css",
-    "main.js": "/agey/static/js/main.7d16710b.chunk.js",
-    "main.js.map": "/agey/static/js/main.7d16710b.chunk.js.map",
+    "main.js": "/agey/static/js/main.7088eb34.chunk.js",
+    "main.js.map": "/agey/static/js/main.7088eb34.chunk.js.map",
     "runtime-main.js": "/agey/static/js/runtime-main.5e05489f.js",
     "runtime-main.js.map": "/agey/static/js/runtime-main.5e05489f.js.map",
-    "static/js/2.2a00c275.chunk.js": "/agey/static/js/2.2a00c275.chunk.js",
-    "static/js/2.2a00c275.chunk.js.map": "/agey/static/js/2.2a00c275.chunk.js.map",
+    "static/js/2.4468213a.chunk.js": "/agey/static/js/2.4468213a.chunk.js",
+    "static/js/2.4468213a.chunk.js.map": "/agey/static/js/2.4468213a.chunk.js.map",
     "index.html": "/agey/index.html",
     "static/css/main.b9be6a39.chunk.css.map": "/agey/static/css/main.b9be6a39.chunk.css.map",
-    "static/js/2.2a00c275.chunk.js.LICENSE.txt": "/agey/static/js/2.2a00c275.chunk.js.LICENSE.txt"
+    "static/js/2.4468213a.chunk.js.LICENSE.txt": "/agey/static/js/2.4468213a.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.5e05489f.js",
-    "static/js/2.2a00c275.chunk.js",
+    "static/js/2.4468213a.chunk.js",
     "static/css/main.b9be6a39.chunk.css",
-    "static/js/main.7d16710b.chunk.js"
+    "static/js/main.7088eb34.chunk.js"
   ]
 }
